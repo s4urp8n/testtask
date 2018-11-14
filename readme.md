@@ -1,55 +1,31 @@
-# Test Task
+Hi!
 
-This project is the code base of the PHP Test Task. 
-It is based on a really simple version of [Laravel Lumen][2].
+# Comments
 
-## Context
-This test task requires you to implement a new feature into an existing RESTful API.
+* It's my first time Lumen + Doctrine experience (yeah, I heard about it but don't use). It's very similar to Laravel but have some nuances, thanx to stackoverflow and official documentation. Last 3-4 years I worked only with Laravel + Eloquent
+* I manually generated migrations for tables, but I think it can be done through artisan doctrine commands using existed models (app/Database/Entities/MailChimp/*), isn't it?
+* Worked time is about 5 hours
+* I don't write any new tests, because I need time to implementing another test tasks for another position. If you want to see my PHPunit tests please see public links I written bellow.
+* s4urp8n@yandex.ru
+* Good luck!
 
-The API is built to interact with [MailChimp via their API][3], handling CRUD operations for [LISTS][4] and [MEMBERS][5].
 
-This task assumes all interaction will take place via this API, therefore data should be stored locally and 
-only retrieved from MailChimp when required. 
+[https://github.com/s4urp8n/view](https://github.com/s4urp8n/view)
 
-The current API contains code which allows the creation, retrieval, update and deletion of lists. 
-You are required to add a feature to this existing code to allow the creation, retrieval update, and 
-deletion of members within a list.
+[https://github.com/s4urp8n/string-helper](https://github.com/s4urp8n/string-helper)
 
-## Scope
-The implementation for [LISTS][4] have been made already. The scope of this task is to update the current code base to
-implement CRUD operations for members:
+[https://github.com/s4urp8n/adjacency-list](https://github.com/s4urp8n/adjacency-list)
 
-- Add members to a list
-- Update members within a list
-- Remove members from a list
-- Retrieve members from a list
+[https://github.com/s4urp8n/common](https://github.com/s4urp8n/common)
 
-## Requirements
-This task requirements are as follows:
+[https://github.com/s4urp8n/directory-walker](https://github.com/s4urp8n/directory-walker)
 
-- Each external libraries are loaded via [composer][9]
-- The database layer used is [Doctrine][6] via the [laravel-doctrine/orm][7] package
-- The interaction with [MailChimp API][3] is made using [pacely/mailchimp-apiv3][8]
+[https://travis-ci.org/s4urp8n](https://travis-ci.org/s4urp8n)
 
-## Get Started
-To complete this task you can either:
+Please check PHP version if you see failed results on Travis-CI
 
-- [Register on MailChimp][10], create your API key to use in your application
-- Clone this repository into your local environment, update the code base and send the URL of your repository
 
-## What we expect
-- Clean code, comments in English
-- Tests
-- Validation and exception handling
-- Controller and router
 
-[1]: https://softex-lab.com/
-[2]: https://lumen.laravel.com
-[3]: http://developer.mailchimp.com/documentation/mailchimp/reference/overview
-[4]: http://developer.mailchimp.com/documentation/mailchimp/reference/lists
-[5]: http://developer.mailchimp.com/documentation/mailchimp/reference/lists/members
-[6]: http://www.doctrine-project.org/projects/orm.html
-[7]: https://www.laraveldoctrine.org/docs/1.3/orm
-[8]: https://github.com/pacely/mailchimp-api-v3
-[9]: https://getcomposer.org/
-[10]: https://login.mailchimp.com/signup/
+
+
+

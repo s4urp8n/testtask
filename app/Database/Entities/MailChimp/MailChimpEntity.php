@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Database\Entities\MailChimp;
 
 use App\Database\Entities\Entity;
+use EoneoPay\Utils\Str;
 
 abstract class MailChimpEntity extends Entity
 {
@@ -22,22 +23,11 @@ abstract class MailChimpEntity extends Entity
     abstract public function toArray(): array;
 
     /**
-     * Get mailchimp array representation of entity.
+     * Get array representation of entity.
      *
      * @return array
      */
-    public function toMailChimpArray(): array
-    {
-        $array = [];
+    abstract public function toMailChimpArray(): array;
 
-        foreach ($this->toArray() as $property => $value) {
-            if ($value === null) {
-                continue;
-            }
 
-            $array[$property] = $value;
-        }
-
-        return $array;
-    }
 }

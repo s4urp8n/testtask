@@ -11,6 +11,9 @@ use EoneoPay\Utils\Str;
  */
 class MailChimpList extends MailChimpEntity
 {
+
+    use MailChimpEntityTrait;
+
     /**
      * @ORM\Column(name="campaign_defaults", type="array")
      *
@@ -118,28 +121,28 @@ class MailChimpList extends MailChimpEntity
     public function getValidationRules(): array
     {
         return [
-            'campaign_defaults' => 'required|array',
-            'campaign_defaults.from_name' => 'required|string',
+            'campaign_defaults'            => 'required|array',
+            'campaign_defaults.from_name'  => 'required|string',
             'campaign_defaults.from_email' => 'required|string',
-            'campaign_defaults.subject' => 'required|string',
-            'campaign_defaults.language' => 'required|string',
-            'contact' => 'required|array',
-            'contact.company' => 'required|string',
-            'contact.address1' => 'required|string',
-            'contact.address2' => 'nullable|string',
-            'contact.city' => 'required|string',
-            'contact.state' => 'required|string',
-            'contact.zip' => 'required|string',
-            'contact.country' => 'required|string|size:2',
-            'contact.phone' => 'nullable|string',
-            'email_type_option' => 'required|boolean',
-            'name' => 'required|string',
-            'notify_on_subscribe' => 'nullable|email',
-            'notify_on_unsubscribe' => 'nullable|email',
-            'mailchimp_id' => 'nullable|string',
-            'permission_reminder' => 'required|string',
-            'use_archive_bar' => 'nullable|boolean',
-            'visibility' => 'nullable|string|in:pub,prv'
+            'campaign_defaults.subject'    => 'required|string',
+            'campaign_defaults.language'   => 'required|string',
+            'contact'                      => 'required|array',
+            'contact.company'              => 'required|string',
+            'contact.address1'             => 'required|string',
+            'contact.address2'             => 'nullable|string',
+            'contact.city'                 => 'required|string',
+            'contact.state'                => 'required|string',
+            'contact.zip'                  => 'required|string',
+            'contact.country'              => 'required|string|size:2',
+            'contact.phone'                => 'nullable|string',
+            'email_type_option'            => 'required|boolean',
+            'name'                         => 'required|string',
+            'notify_on_subscribe'          => 'nullable|email',
+            'notify_on_unsubscribe'        => 'nullable|email',
+            'mailchimp_id'                 => 'nullable|string',
+            'permission_reminder'          => 'required|string',
+            'use_archive_bar'              => 'nullable|boolean',
+            'visibility'                   => 'nullable|string|in:pub,prv',
         ];
     }
 
@@ -174,13 +177,13 @@ class MailChimpList extends MailChimpEntity
     /**
      * Set email type option.
      *
-     * @param bool $emailTypeOption
+     * @param mixed $emailTypeOption
      *
      * @return MailChimpList
      */
-    public function setEmailTypeOption(bool $emailTypeOption): MailChimpList
+    public function setEmailTypeOption($emailTypeOption): MailChimpList
     {
-        $this->emailTypeOption = $emailTypeOption;
+        $this->emailTypeOption = getBooleanValue($emailTypeOption);
 
         return $this;
     }
@@ -283,20 +286,4 @@ class MailChimpList extends MailChimpEntity
         return $this;
     }
 
-    /**
-     * Get array representation of entity.
-     *
-     * @return array
-     */
-    public function toArray(): array
-    {
-        $array = [];
-        $str = new Str();
-
-        foreach (\get_object_vars($this) as $property => $value) {
-            $array[$str->snake($property)] = $value;
-        }
-
-        return $array;
-    }
 }
